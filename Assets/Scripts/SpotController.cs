@@ -57,6 +57,10 @@ public class SpotController : MonoBehaviour
             Vector3 pos = new Vector3(longitudeUnity, 10.0f, latitudeUnity);
             var spot = Instantiate(SpotPrefab, pos, Quaternion.identity);
             spot.name  = (string)json[i]["spots_name"];
+
+            // 表示の調整で100倍する
+            float spotDayPerson = (float)json[i]["spots_day"]["person"][0] * 100;
+            spot.transform.localScale = new Vector3(200.0f, spotDayPerson, 200.0f);
         }
     }
 }
