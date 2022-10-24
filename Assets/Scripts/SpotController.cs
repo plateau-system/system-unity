@@ -23,7 +23,7 @@ public class SpotController : MonoBehaviour
 
     void spotAllGet()
     {
-        string url = "http://localhost:8000/api/spot_all/1";
+        string url = string.Format("http://localhost:8000/api/spot_all/{0}", LoginController.userId);
 
         WebRequest request = WebRequest.Create(url);
         Stream responseStream = request.GetResponse().GetResponseStream();
